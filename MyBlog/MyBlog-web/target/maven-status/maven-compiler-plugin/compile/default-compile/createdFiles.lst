@@ -1,0 +1,5 @@
+com\myblog\web\ArticleAction.class
+com\myblog\web\CommentAction.class
+com\myblog\web\CheckImgAction.class
+com\myblog\web\UserAction.class
+com\myblog\web\NoticeAction.class

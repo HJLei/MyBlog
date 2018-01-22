@@ -1,0 +1,6 @@
+com\myblog\entity\Photo.class
+com\myblog\entity\Notice.class
+com\myblog\entity\Article.class
+com\myblog\entity\Comment.class
+com\myblog\entity\PageBean.class
+com\myblog\entity\Users.class

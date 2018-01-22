@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+	"http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+	
+	<!-- 设置系统参数 -->
+	<constant name="struts.devMode" value="true"/>
+	<constant name="struts.ui.theme" value="simple"/>
+	<!-- 设置Action -->
+	<package name="myblog" extends="json-default">
+		<global-allowed-methods>regex:.*</global-allowed-methods>
+        <!--用户-->
+		<action name="userAction_*" method="{1}" class="userAction">
+			<!--<result name="input">/login.jsp</result>-->
+            <!--<result name="main" type="redirect">/index.jsp</result>-->
+            <result name="login" type="json">
+                <param name="includeProperties">msg</param>
+            </result>
+            <result name="removeLongName" type="json">
+                <param name="includeProperties">msg</param>
+            </result>
+            <!--<result name="addSuccess" type="redirect">/login.jsp?msg=${msg}</result>-->
+            <result name="myinfo" type="json">
+                <param name="includeProperties">ulist.*</param>
+            </result>
+            <result name="updateUser" type="json">
+                <param name="includeProperties">msg</param>
+            </result>
+            <result name="findArticleList">/index2.jsp</result>
+        </action>
+        <!--文章-->
+        <action name="articleAction_*" method="{1}" class="articleAction">
+            <result name="findArticleList">/index2.jsp</result>
+            <result name="findArticleForPage">/index2.jsp</result>
+            <result name="articleDetail">/ArticleDetail.jsp</result>
+            <result name="addTbArticle" type="json">
+                <param name="includeProperties">msg</param>
+            </result>
+        </action>
+        <!--注册-->
+        <action name="checkImgAction_*" method="{1}" class="checkImgAction">
+            <result name="checkcodeFail">/login.jsp</result>
+            <result name="addSuccess" type="redirect">/login.jsp?msg=${msg}</result>
+        </action>
+        <!--评论-->
+        <action name="commentAction_*" method="{1}" class="commentAction">
+            <result name="addSuccess" type="json">
+                <param name="includeProperties">msg</param>
+            </result>
+            <result name="commentList" type="json">
+                <param name="includeProperties">commentList.*</param>
+            </result>
+            <result name="updateComment" type="json">
+                <param name="includeProperties">msg</param>
+            </result>
+        </action>
+        <action name="noticeAction_*" method="{1}" class="noticeAction">
+            <result name="addNotices" type="json">
+                <param name="includeProperties">msg</param>
+            </result>
+            <result name="noticeList" type="json">
+                <param name="includeProperties">noticeList.*</param>
+            </result>
+        </action>
+    </package>
+</struts>
+
+
+
+
+
